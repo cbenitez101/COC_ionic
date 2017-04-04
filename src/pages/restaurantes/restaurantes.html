@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="custom-color">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Restaurantes</ion-title>
+    <ion-buttons end>
+  <button ion-button icon-only (click)="addRestaurant()">
+    <ion-icon name="add"></ion-icon>
+  </button>
+</ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+  <ion-item *ngFor="let restaurant of restaurants | async" (click)="showOptions(restaurant.$key, restaurant.nombre)">
+    {{restaurant.nombre}}
+  </ion-item>
+</ion-list>
+</ion-content>
